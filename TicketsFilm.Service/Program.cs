@@ -1,4 +1,3 @@
-using Serilog;
 using TicketsFilm.Service.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +9,6 @@ var app = builder.Build();
 
 SerilogConfigurator.ConfigureApplication(app);
 SwaggerConfigurator.ConfigureApplication(app);
-
-//app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
