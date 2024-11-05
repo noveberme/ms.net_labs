@@ -42,5 +42,4 @@
 
 # 10) (DELETE) Изменение записи
     Администратор имеет право удалить сеанс полностью, как и записи о нем
-![итог_модель фильма](https://github.com/user-attachments/assets/0b09123a-324c-411d-9cde-33e37aaf931a)
-(не совсем поняла, про какие роли речь)
+![конеч_фильм](https://github.com/user-attachments/assets/cff7f0be-f42c-4439-8497-a60be85c4cf9)
