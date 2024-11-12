@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsFilm.DataAccess", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsFilm.BL", "TicketsFilm.BL\TicketsFilm.BL.csproj", "{01F7E08D-F4A6-4168-AAE9-B998E9755B09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketFilm.BL", "TicketFilm.BL\TicketFilm.BL.csproj", "{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{01F7E08D-F4A6-4168-AAE9-B998E9755B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F7E08D-F4A6-4168-AAE9-B998E9755B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F7E08D-F4A6-4168-AAE9-B998E9755B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
