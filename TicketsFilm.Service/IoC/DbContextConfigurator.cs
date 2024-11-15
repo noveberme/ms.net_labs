@@ -1,5 +1,5 @@
-﻿using TicketsFilm.DataAccess;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using TicketsFilm.DataAccess;
 
 namespace TicketsFilm.Service.IoC;
 

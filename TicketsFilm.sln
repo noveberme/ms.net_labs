@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsFilm.Service", "Tick
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsFilm.DataAccess", "TicketsFilm.DataAccess\TicketsFilm.DataAccess.csproj", "{CBD41E3A-E192-4E73-8B57-ADAFEE357A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketsFilm.BL", "TicketsFilm.BL\TicketsFilm.BL.csproj", "{01F7E08D-F4A6-4168-AAE9-B998E9755B09}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketFilm.BL", "TicketFilm.BL\TicketFilm.BL.csproj", "{E26F90F7-FE0A-41C3-A3C5-8A9F9ADB9BAA}"
 EndProject
 Global

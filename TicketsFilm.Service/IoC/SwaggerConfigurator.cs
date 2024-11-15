@@ -1,6 +1,6 @@
 ﻿namespace TicketsFilm.Service.IoC;
 
-public class SwaggerConfigurator
+public static class SwaggerConfigurator
 {
     public static void ConfigureService(IServiceCollection services)
     {

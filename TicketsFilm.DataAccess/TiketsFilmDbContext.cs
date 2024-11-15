@@ -5,10 +5,6 @@ namespace TicketsFilm.DataAccess;
 
 public class TicketsFilmDbContext : DbContext
 {
-    public TicketsFilmDbContext(DbContextOptions options) : base(options)
-    {
-    }
-    
     public DbSet<CinemaEntity> Cinemas { get; set; }
     public DbSet<FilmEntity> Films { get; set; }
     public DbSet<HallEntity> Halls { get; set; }
@@ -16,6 +12,10 @@ public class TicketsFilmDbContext : DbContext
     public DbSet<OrderEntity> Orders { get; set; }
     public DbSet<SessionEntity> Sessions { get; set; }
     public DbSet<TicketEntity> Tickets { get; set; }
+    
+    public TicketsFilmDbContext(DbContextOptions options) : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -44,6 +44,5 @@ public class TicketsFilmDbContext : DbContext
         
         modelBuilder.Entity<TicketEntity>().HasOne(x => x.Session)
             .WithMany(x => x.Tickets).HasForeignKey(x => x.SessionId);
-
     }
 }
