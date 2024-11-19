@@ -1,6 +1,6 @@
-﻿namespace TicketFilm.BL.Users.Entity;
+﻿namespace TicketsFilm.BL.Users.Entity;
 
-public class UserModel
+public class UpdateUserModel
 {
     public int Id { get; set; }
     public Guid ExternalId { get; set; }

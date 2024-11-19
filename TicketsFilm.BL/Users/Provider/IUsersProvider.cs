@@ -1,6 +1,6 @@
-﻿using TicketFilm.BL.Users.Entity;
+﻿using TicketsFilm.BL.Users.Entity;
 
-namespace TicketFilm.BL.Provider;
+namespace TicketsFilm.BL.Provider;
 
 public interface IUsersProvider
 {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using TicketFilm.BL.Users.Entity;
+using TicketsFilm.BL.Users.Entity;
 using TicketsFilm.DataAccess.Entities;
 
-namespace TicketFilm.BL.Mapper;
+namespace TicketsFilm.BL.Mapper;
 
 public class UsersBLProfile : Profile
 {

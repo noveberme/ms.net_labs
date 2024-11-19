@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using TicketFilm.BL.Users.Entity;
-using TicketFilm.BL.Users.Exceptions;
-using TicketFilm.BL.Users.Manager;
+using TicketsFilm.BL.Users.Entity;
+using TicketsFilm.BL.Users.Exceptions;
+using TicketsFilm.BL.Users.Manager;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.DataAccess.Repository;
 
-namespace BeautyShopBL.Users.Manager;
+namespace TicketsFilm.BL.Users.Manager;
 
 public class UsersManager : IUsersManager
 {

@@ -1,7 +1,11 @@
-﻿namespace TicketFilm.BL.Users.Entity;
+﻿namespace TicketsFilm.BL.Users.Entity;
 
-public class CreateUserModel
+public class UserModel
 {
+    public int Id { get; set; }
+    public Guid ExternalId { get; set; }
+    public DateTime CreationTime { get; set; }
+    public DateTime ModificationTime { get; set; }
     public string Username { get; set; }
     public string Email { get; set; }
     public string Numberphone { get; set; }

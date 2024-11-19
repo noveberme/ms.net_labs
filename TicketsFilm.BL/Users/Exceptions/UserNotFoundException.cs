@@ -1,4 +1,4 @@
-﻿namespace TicketFilm.BL.Users.Exceptions;
+﻿namespace TicketsFilm.BL.Users.Exceptions;
 
 public class UserNotFoundException : ApplicationException
 {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using TicketFilm.BL.Provider;
-using TicketFilm.BL.Users.Entity;
-using TicketFilm.BL.Users.Exceptions;
+using TicketsFilm.BL.Provider;
+using TicketsFilm.BL.Users.Entity;
+using TicketsFilm.BL.Users.Exceptions;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.DataAccess.Repository;
 
