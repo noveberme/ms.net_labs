@@ -5,7 +5,7 @@ using TicketsFilm.BL.Users.Exceptions;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.DataAccess.Repository;
 
-namespace TicketsFilm.BL.Users.Provider;
+namespace TicketFilm.BL.Users.Provider;
 
 public class UsersProvider : IUsersProvider
 {

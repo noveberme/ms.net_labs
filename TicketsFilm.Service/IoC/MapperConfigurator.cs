@@ -1,16 +1,15 @@
-﻿using TicketsFilm.Service.Mapper;
-using TicketsFilm.BL.Mapper;
+﻿using TicketFilm.BL.Mapper;
+using TicketsFilm.Service.Controllers.Mapper;
 
 namespace TicketsFilm.Service.IoC;
 
 public class MapperConfigurator
 {
-    public static void ConfigureServices(WebApplicationBuilder builder)
+    public static void ConfigureServices(IServiceCollection services)
     {
-        var services = builder.Services;
         services.AddAutoMapper(config =>
         {
-            config.AddProfile<UsersBLProfile>();
+            config.AddProfile<UsersBlProfile>();
             config.AddProfile<UsersServiceProfile>();
         });
     }

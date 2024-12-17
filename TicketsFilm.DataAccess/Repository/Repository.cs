@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TicketsFilm.DataAccess.Repository;
 
-public class Repository <T> : IRepository<T> where T : BaseEntity
+public class Repository <T> : IRepository<T> where T :  class, IBaseEntity
 {
     private readonly IDbContextFactory<DbContext> _contextFactory;
 

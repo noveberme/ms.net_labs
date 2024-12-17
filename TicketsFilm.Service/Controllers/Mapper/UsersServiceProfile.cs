@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TicketsFilm.BL.Users.Entities;
+using TicketsFilm.BL.Users.Entity;
 using TicketsFilm.Service.Controllers.Users.Entities;
 
 namespace TicketsFilm.Service.Controllers.Mapper;

@@ -2,11 +2,11 @@
 using TicketsFilm.BL.Users.Entity;
 using TicketsFilm.DataAccess.Entities;
 
-namespace TicketsFilm.BL.Mapper;
+namespace TicketFilm.BL.Mapper;
 
-public class UsersBLProfile : Profile
+public class UsersBlProfile : Profile
 {
-    public UsersBLProfile()
+    public UsersBlProfile()
     {
         CreateMap<UserEntity, UserModel>()
             .ForMember(x => x.Id, y => y.MapFrom(src => src.Id))

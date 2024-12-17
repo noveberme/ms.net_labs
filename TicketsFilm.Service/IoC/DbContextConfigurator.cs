@@ -1,17 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TicketsFilm.DataAccess;
+using TicketsFilm.Service.Settings;
 
 namespace TicketsFilm.Service.IoC;
 
 public class DbContextConfigurator
 {
-    public static void ConfigureServices(WebApplicationBuilder builder)
+    public static void ConfigureServices(WebApplicationBuilder builder, TicketsFilmSettings settings)
     {
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json", false)
-            .Build();
-        var connectionString = configuration.GetValue<string>("TicketsFilmContext");
-
+        var connectionString = settings.ConnectionString;
         builder.Services.AddDbContextFactory<TicketsFilmDbContext>(
             options => { options.UseNpgsql(connectionString); },
             ServiceLifetime.Scoped);

@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using TicketsFilm.BL.Users.Entity;
 using TicketsFilm.BL.Users.Manager;
-using TicketsFilm.BL.Users.Provider;
 using Microsoft.AspNetCore.Mvc;
+using TicketsFilm.BL.Provider;
+using TicketsFilm.BL.Users.Exceptions;
 using TicketsFilm.Service.Controllers.Users.Entities;
 using TicketsFilm.Service.Controllers.Validation;
 
@@ -27,6 +28,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(UserModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     public IActionResult RegisterUser([FromBody] RegisterUserRequest request)
     {
         var validationResult = new RegisterUserRequestValidator().Validate(request);
@@ -42,6 +45,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(UsersResponse), StatusCodes.Status200OK)]
     public IActionResult GetAllUsers()
     {
         var users = _usersProvider.GetUsers();
@@ -53,6 +57,7 @@ public class UsersController : ControllerBase
 
     [HttpGet]
     [Route("filter")]
+    [ProducesResponseType(typeof(UsersResponse), StatusCodes.Status200OK)]
     public IActionResult GetFilteredUsers([FromQuery] UserFilter filter)
     {
         var userFilterModel = _mapper.Map<UserFilterModels>(filter);
@@ -61,5 +66,42 @@ public class UsersController : ControllerBase
         {
             Users = users.ToList()
         });
+    }
+    
+    [HttpGet]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(UserModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+    public IActionResult GetUserById(int id)
+    {
+        try
+        {
+            var user = _usersProvider.GerUserInfo(id);
+            return Ok(user);
+        }
+        catch (UserNotFoundException e)
+        {
+            _logger.Error(e.ToString());
+            return NotFound(e.Message);
+        }
+      
+    }
+    
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(UserModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+    public IActionResult DeleteUserById([FromRoute] int id)
+    {
+        try
+        {
+            _usersManager.DeleteUser(id);
+            return Ok();
+        }
+        catch (UserNotFoundException e)
+        {
+            _logger.Error(e.ToString());
+            return NotFound(e.Message);
+        }
     }
 }

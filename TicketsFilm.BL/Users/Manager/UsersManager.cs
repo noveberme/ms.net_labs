@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using TicketsFilm.BL.Users.Entity;
 using TicketsFilm.BL.Users.Exceptions;
-using TicketsFilm.BL.Users.Manager;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.DataAccess.Repository;
 
@@ -34,10 +33,30 @@ public class UsersManager : IUsersManager
             throw new UserNotFoundException(e.Message);
         }
     }
-    public UserModel UpdateUser(UpdateUserModel updateModel)
+
+    public UserModel UpdateUser(UpdateUserModel model, int idUser)
     {
-        var entity = _mapper.Map<UserEntity>(updateModel);
-        entity = _usersRepository.Save(entity);
-        return _mapper.Map<UserModel>(entity);
+        var entity = _usersRepository.GetById(idUser);
+        if (entity == null)
+        {
+            throw new UserNotFoundException("User not found");
+        }
+        
+        entity = _mapper.Map<UpdateUserModel, UserEntity>(model, opts => 
+            opts.AfterMap(
+                (src, dest) =>
+                {
+                    dest.Id = idUser;
+                    dest.ExternalId = entity.ExternalId;
+                    dest.CreationTime = entity.CreationTime;
+                    dest.ModificationTime=DateTime.UtcNow;
+                    dest.Username = src.Username ?? entity.Username;
+                    dest.PasswordHash = src.PasswordHash ?? entity.PasswordHash;
+                    dest.Email = src.Email ?? entity.Email;
+                }
+            ));
+        
+        _usersRepository.Save(entity);
+        return  _mapper.Map<UserModel>(entity);
     }
 }

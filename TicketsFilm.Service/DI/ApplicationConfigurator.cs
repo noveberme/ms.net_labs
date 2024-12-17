@@ -1,17 +1,18 @@
 ﻿using TicketsFilm.Service.IoC;
+using TicketsFilm.Service.Settings;
 
 namespace TicketsFilm.Service.DI;
 
 public class ApplicationConfigurator
 {
-    public static void ConfigureServices(WebApplicationBuilder builder)
+    public static void ConfigureServices(WebApplicationBuilder builder, TicketsFilmSettings settings)
     {
-        DbContextConfigurator.ConfigureServices(builder);
+        AuthorizationConfigurator.ConfigureServices(builder.Services, settings);
         SerilogConfigurator.ConfigureService(builder);
-        //SwaggerConfigurator.ServicesConfigurator(builder.Services);
-        MapperConfigurator.ConfigureServices(builder);
-        ServicesConfigurator.ConfigureServices(builder.Services);
-        
+        SwaggerConfigurator.ConfigureService(builder.Services);
+        DbContextConfigurator.ConfigureServices(builder, settings);
+        MapperConfigurator.ConfigureServices(builder.Services);
+        ServicesConfigurator.ConfigureServices(builder.Services, settings);
         builder.Services.AddControllers();
     }
     public static void ConfigureApplication(WebApplication app)

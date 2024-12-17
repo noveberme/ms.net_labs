@@ -3,7 +3,7 @@ using TicketsFilm.DataAccess.Entities;
 
 namespace TicketsFilm.DataAccess.Repository;
 
-public interface IRepository<T> where T : BaseEntity
+public interface IRepository<T>
 {
     public IQueryable<T> GetAll();
     IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);

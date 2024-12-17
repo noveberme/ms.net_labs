@@ -18,7 +18,7 @@ public class RegisterUserRequestValidator : AbstractValidator<RegisterUserReques
         RuleFor(x => x.Email)
             .NotEmpty()
             .WithMessage("Name is required");
-        RuleFor(x => x.Role)
+        RuleFor(x => x.RoleId)
             .NotEmpty()
             .WithMessage("Role is required");
         RuleFor(x => x.Numberphone)
