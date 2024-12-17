@@ -1,9 +1,10 @@
-﻿using TicketFilm.BL.Mapper;
+﻿using AutoMapper;
+using TicketFilm.BL.Mapper;
 using TicketsFilm.Service.Controllers.Mapper;
 
 namespace TicketsFilm.Service.IoC;
 
-public class MapperConfigurator
+public static class MapperConfigurator
 {
     public static void ConfigureServices(IServiceCollection services)
     {
