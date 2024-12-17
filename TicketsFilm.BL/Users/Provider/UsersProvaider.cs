@@ -28,13 +28,12 @@ public class UsersProvider : IUsersProvider
         string? numberphone = filter?.Numberphone;
         int? age = filter?.Age;
         var users = _userRepository.GetAll(u =>
-            (namePart == null || u.Username.Contains(namePart)) &&
-            (emailPart == null || u.E_mail.Contains(emailPart)) &&
-            (creationTime == null || u.CreationTime == creationTime) &&
-            (modificationTime == null || u.ModificationTime == modificationTime) &&
-            (role == null || u.Role == role) &&
-            (numberphone == null || u.Number_phone == numberphone) &&
-            (age == null || u.Age == age)
+            (namePart != null && !u.Username.Contains(namePart)) ||
+            (emailPart != null && !u.E_mail.Contains(emailPart)) ||
+            (modificationTime != null && u.ModificationTime != modificationTime) ||
+            (role != null && u.Role != role) ||
+            (numberphone != null && u.Number_phone != numberphone) ||
+            (age != null && u.Age != age)
         );
         return _mapper.Map<IEnumerable<UserModel>>(users);
     }

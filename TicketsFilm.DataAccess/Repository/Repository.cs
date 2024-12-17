@@ -8,7 +8,7 @@ public class Repository <T> : IRepository<T> where T :  class, IBaseEntity
 {
     private readonly IDbContextFactory<DbContext> _contextFactory;
 
-    public Repository(IDbContextFactory<DbContext> contextFactory)
+    public Repository(IDbContextFactory<TicketsFilmDbContext> contextFactory)
     {
         _contextFactory = contextFactory;
     }
