@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using TicketsFilm.DataAccess.Entities;
 
 namespace TicketsFilm.DataAccess.Repository;
 

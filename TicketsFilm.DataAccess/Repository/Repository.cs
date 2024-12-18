@@ -1,12 +1,12 @@
 ﻿using System.Linq.Expressions;
-using TicketsFilm.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
+using TicketsFilm.DataAccess.Entities;
 
 namespace TicketsFilm.DataAccess.Repository;
 
-public class Repository <T> : IRepository<T> where T :  class, IBaseEntity
+public class Repository<T> : IRepository<T> where T : class, IBaseEntity
 {
-    private readonly IDbContextFactory<DbContext> _contextFactory;
+    private readonly IDbContextFactory<TicketsFilmDbContext> _contextFactory;
 
     public Repository(IDbContextFactory<TicketsFilmDbContext> contextFactory)
     {

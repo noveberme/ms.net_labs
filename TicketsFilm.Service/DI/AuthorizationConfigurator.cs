@@ -1,13 +1,11 @@
 ﻿using Duende.IdentityServer.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using TicketsFilm.DataAccess;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.Service.Settings;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Logging;
-using Microsoft.IdentityModel.Tokens;
 
 namespace TicketsFilm.Service.DI;
 
@@ -37,7 +35,7 @@ public class AuthorizationConfigurator
                     AllowedGrantTypes =
                     [
                         GrantType.ClientCredentials,
-                        GrantType.ResourceOwnerPassword,
+                        GrantType.ResourceOwnerPassword
                     ],
                     ClientSecrets =
                     [

@@ -11,6 +11,6 @@ public class FilmEntity : BaseEntity
     public string Country { get; set; }
     public string Main_actors { get; set; }
     public DateTime Duration { get; set; }
-    
+
     public virtual ICollection<SessionEntity>? Sessions { get; set; }
 }
