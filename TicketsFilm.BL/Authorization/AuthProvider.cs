@@ -18,6 +18,13 @@ public class AuthProvider (
     string clientId,
     string clientSecret, IMapper mapper) : IAuthProvider
     {
+        private IAuthProvider _authProviderImplementation;
+
+        public Task<UserModel> RegisterUser(string username, string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<TokensResponse> AuthorizeUser(string email, string password)
         {
             var user = await userManager.FindByEmailAsync(email);
@@ -62,7 +69,7 @@ public class AuthProvider (
             };
         }
 
-        public async Task<UserModel> RegisterUser(string username, string email, string password)
+        public async Task<UserModel> RegisterUser(string username, string email, string password, string password123)
         {
             var existingUser = await userManager.FindByEmailAsync(email);
             if (existingUser != null)

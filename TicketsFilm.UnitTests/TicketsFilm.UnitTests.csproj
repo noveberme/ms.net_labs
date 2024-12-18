@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.0"/>
+        <PackageReference Include="FluentAssertions" Version="8.0.0-alpha.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0-rc.2.24473.5" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>

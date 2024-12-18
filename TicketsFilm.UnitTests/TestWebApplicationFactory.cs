@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace TestProject1;
 
-public class TestWebApplicationFactory
+public class TestWebApplicationFactory :  WebApplicationFactory<Program>
 {
     private readonly Action<IServiceCollection>? _overrideDependencies;
 

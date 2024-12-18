@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using TicketsFilm.DataAccess.Entities;
 using TicketsFilm.DataAccess.Repository;
-using TicketsFilmUnitTests.TicketsFilmApiEndpoints;
 
-namespace TestProject1.UserAuthorization;
+namespace TestProject1;
 
 public class LoginUserTest
 {
@@ -23,11 +22,10 @@ public class LoginUserTest
 
         var password = "password";
         var query = $"?email={login}&password={password}";
-        var requestUri =
-            TicketsFilmApiEndpoints.AuthorizeUserEndpoint + query;
+        var requestUri = TicketsFilmApiEndpoints.AuthorizeUserEndpoint + query;
         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, requestUri);
         var response = await TestHttpClient.SendAsync(request);
-        
+
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
@@ -46,15 +44,15 @@ public class LoginUserTest
         await userManager.CreateAsync(user, password);
 
         var incorrect_password = "kjdffsd";
-        
+
         var query = $"?email={user.UserName}&password={incorrect_password}";
         var requestUri =
-            TicketsFilmServiceApiEndpoints.AuthorizeUserEndpoint + query;
+            TicketsFilmApiEndpoints.AuthorizeUserEndpoint + query;
         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, requestUri);
         var client = TestHttpClient;
         var response = await client.SendAsync(request);
 
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest); 
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     [Test]
@@ -66,12 +64,12 @@ public class LoginUserTest
     {
         var query = $"?login={login}&password={password}";
         var requestUri =
-            TicketsFilmServiceApiEndpoints.AuthorizeUserEndpoint + query;
+            TicketsFilmApiEndpoints.AuthorizeUserEndpoint + query;
         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, requestUri);
         var client = TestHttpClient;
         var response = await client.SendAsync(request);
-        
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest); 
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
 }
